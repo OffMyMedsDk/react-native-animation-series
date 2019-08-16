@@ -3,7 +3,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { bindActionCreators } from "redux";
-import { Animated, Dimensions, TouchableOpacity } from "react-native";
+import {
+  Animated,
+  Dimensions,
+  TouchableOpacity,
+  StatusBar
+} from "react-native";
 
 import actions from "./redux/actions";
 
@@ -29,12 +34,16 @@ class Menu extends Component {
       Animated.spring(this.translateX, {
         toValue: -screenWidth
       }).start();
+
+      StatusBar.setBarStyle("dark-content", true);
     }
 
     if (toggled) {
       Animated.spring(this.translateX, {
         toValue: 0
       }).start();
+
+      StatusBar.setBarStyle("light-content", true);
     }
   };
 
