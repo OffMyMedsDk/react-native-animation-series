@@ -1,19 +1,27 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Menu from "./src/Menu";
 
-export default function App() {
+function App() {
+  const [selected, setSelect] = useState("");
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <Container>
+      <Text>{selected}</Text>
+      <Menu onChange={setSelect} />
+    </Container>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+const Container = styled.View`
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Text = styled.Text`
+  font-size: 25px;
+  font-family: Arial;
+`;
